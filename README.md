@@ -1,4 +1,5 @@
 ## About :
-    *   An app that tracks sobriety
+    *   An app that tracks daily activity
+    * 
     
 
