@@ -9,16 +9,115 @@
 import UIKit
 
 class CustomeTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    static var cellIdentifier = "cell"
+    
+    // MARK: -> IBOutlets
+    
+    lazy var displayImage: UIImageView = {
+        let diplayImage = UIImageView(frame: .zero)
+        diplayImage.translatesAutoresizingMaskIntoConstraints = false
+        diplayImage.contentMode = .scaleAspectFit
+//        diplayImage.backgroundColor = .yellow
+        return diplayImage
+    }()
+    
+    func displayImageConstraints() {
+        NSLayoutConstraint.activate([
+            displayImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -220),
+            displayImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40),
+            displayImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -6),
+            displayImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 19),
+            displayImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            displayImage.widthAnchor.constraint(equalToConstant: 100),
+            displayImage.heightAnchor.constraint(equalToConstant: 60)
+        ])
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    
+    
+    lazy var streakLabelName: UILabel = {
+        let streakLabelName = UILabel(frame: .zero)
+        streakLabelName.translatesAutoresizingMaskIntoConstraints = false
+//                streakLabelName.backgroundColor = .green
+        streakLabelName.adjustsFontSizeToFitWidth = true
+        streakLabelName.adjustsFontForContentSizeCategory =  true
+        streakLabelName.numberOfLines = 0
+        streakLabelName.font = UIFont(name: "Arial Rounded MT Bold", size: 16)
+        streakLabelName.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        streakLabelName.textAlignment = .left
+        streakLabelName.clipsToBounds = true
+        return streakLabelName
+    }()
+    
+    func streakLabelNameConstraints() {
+        NSLayoutConstraint.activate([
+            streakLabelName.topAnchor.constraint(equalTo: displayImage.topAnchor),
+            streakLabelName.leadingAnchor.constraint(equalTo: displayImage.trailingAnchor, constant: 0),
+            streakLabelName.bottomAnchor.constraint(equalTo: displayImage.bottomAnchor),
+            streakLabelName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
+        ])
     }
+    
+    
+    lazy var streakLabelCount: UILabel = {
+        let streakLabelCount = UILabel(frame: .zero)
+        streakLabelCount.translatesAutoresizingMaskIntoConstraints = false
+        streakLabelCount.backgroundColor = .systemPink
+        streakLabelCount.adjustsFontSizeToFitWidth = true
+        streakLabelCount.adjustsFontForContentSizeCategory =  true
+        streakLabelCount.font = UIFont(name: "Arial Rounded MT Bold", size: 15)
+        streakLabelCount.textColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
+        streakLabelCount.textAlignment = .center
+        streakLabelCount.textColor = .white
+        streakLabelCount.clipsToBounds = true
+        streakLabelCount.layer.cornerRadius = 15
+        return streakLabelCount
+    }()
+    
+    func streakLabelCountConstraints() {
+        NSLayoutConstraint.activate([
+            streakLabelCount.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11),
+            streakLabelCount.leadingAnchor.constraint(equalTo: displayImage.trailingAnchor, constant: 200),
+            streakLabelCount.bottomAnchor.constraint(equalTo: displayImage.bottomAnchor),
+            streakLabelCount.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 90)
+        ])
+    }
+    
+    
+    override init(style: UITableViewCell.CellStyle , reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubview(displayImage)
+        displayImageConstraints()
+        addSubview(streakLabelName)
+        streakLabelNameConstraints()
+        addSubview(streakLabelCount)
+        streakLabelCountConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    
+    func initUI(object: HabitModel) {
+        self.displayImage.image = UIImage(named: "\(object.selectedImage)")
+        self.streakLabelName.text = object.title
+        self.streakLabelCount.text = "Streak: \(object.currentStreak)"
+        
+        // cell styling
+        backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    
+    
+    
+}
 
+
+
+extension CustomeTableViewCell {
+    
+    
+    
+    
+    
 }
