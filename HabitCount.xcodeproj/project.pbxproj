@@ -15,6 +15,7 @@
 		770B7CAD240FA0A00094F469 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770B7CAB240FA0A00094F469 /* LaunchScreen.storyboard */; };
 		770B7CB9240FA5070094F469 /* CustomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CB8240FA5070094F469 /* CustomeTableViewCell.swift */; };
 		770B7CBB240FA9780094F469 /* HabitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CBA240FA9780094F469 /* HabitsModel.swift */; };
+		770B7CBD241063070094F469 /* PresistenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CBC241063070094F469 /* PresistenceObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		770B7CAE240FA0A00094F469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		770B7CB8240FA5070094F469 /* CustomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTableViewCell.swift; sourceTree = "<group>"; };
 		770B7CBA240FA9780094F469 /* HabitsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsModel.swift; sourceTree = "<group>"; };
+		770B7CBC241063070094F469 /* PresistenceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresistenceObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				770B7CBA240FA9780094F469 /* HabitsModel.swift */,
+				770B7CBC241063070094F469 /* PresistenceObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770B7CBD241063070094F469 /* PresistenceObject.swift in Sources */,
 				770B7CB9240FA5070094F469 /* CustomeTableViewCell.swift in Sources */,
 				770B7CA5240FA09F0094F469 /* BaseViewController.swift in Sources */,
 				770B7CBB240FA9780094F469 /* HabitsModel.swift in Sources */,

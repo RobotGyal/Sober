@@ -38,14 +38,15 @@ class CustomeTableViewCell: UITableViewCell {
     lazy var streakLabelName: UILabel = {
         let streakLabelName = UILabel(frame: .zero)
         streakLabelName.translatesAutoresizingMaskIntoConstraints = false
-//                streakLabelName.backgroundColor = .green
+                streakLabelName.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 0.603702911)
         streakLabelName.adjustsFontSizeToFitWidth = true
         streakLabelName.adjustsFontForContentSizeCategory =  true
         streakLabelName.numberOfLines = 0
         streakLabelName.font = UIFont(name: "Arial Rounded MT Bold", size: 16)
         streakLabelName.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        streakLabelName.textAlignment = .left
+        streakLabelName.textAlignment = .center
         streakLabelName.clipsToBounds = true
+        streakLabelName.layer.cornerRadius = 10
         return streakLabelName
     }()
     
@@ -54,7 +55,7 @@ class CustomeTableViewCell: UITableViewCell {
             streakLabelName.topAnchor.constraint(equalTo: displayImage.topAnchor),
             streakLabelName.leadingAnchor.constraint(equalTo: displayImage.trailingAnchor, constant: 0),
             streakLabelName.bottomAnchor.constraint(equalTo: displayImage.bottomAnchor),
-            streakLabelName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
+            streakLabelName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
         ])
     }
     
@@ -76,7 +77,7 @@ class CustomeTableViewCell: UITableViewCell {
     
     func streakLabelCountConstraints() {
         NSLayoutConstraint.activate([
-            streakLabelCount.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11),
+            streakLabelCount.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 19),
             streakLabelCount.leadingAnchor.constraint(equalTo: displayImage.trailingAnchor, constant: 200),
             streakLabelCount.bottomAnchor.constraint(equalTo: displayImage.bottomAnchor),
             streakLabelCount.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 90)
@@ -105,7 +106,16 @@ class CustomeTableViewCell: UITableViewCell {
         self.streakLabelCount.text = "Streak: \(object.currentStreak)"
         
         // cell styling
-        backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
+        contentView.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
+        contentView.layer.masksToBounds =  true
+        contentView.layer.cornerRadius = 20
+     
+        contentView.layer.borderColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
+        contentView.layer.borderWidth = 3
+        contentView.layer.cornerRadius = 8
+        contentView.clipsToBounds = true
+        
     }
     
     

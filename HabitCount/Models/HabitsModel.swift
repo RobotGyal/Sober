@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 
-struct HabitModel {
+struct HabitModel: Codable {
     
-    enum Images: Int, CaseIterable {
+    enum Images: Int, CaseIterable, Codable {
         case book
         case bulb
         case clock

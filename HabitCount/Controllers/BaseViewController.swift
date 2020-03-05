@@ -16,11 +16,12 @@ class BaseViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
         view.addSubview(mainTableView)
         mainTableViewConstraints()
         
         setNavBar()
+        
         
     }
     
@@ -28,6 +29,9 @@ class BaseViewController: UIViewController {
     
     var habitsDataBase = [
         HabitModel(title: "Go to bed before 10pm", image: HabitModel.Images.book),
+        HabitModel(title: "Drink 8 Glasses of Water", image: HabitModel.Images.book),
+        HabitModel(title: "Commit Today", image: HabitModel.Images.book),
+        HabitModel(title: "Stand up every Hour", image: HabitModel.Images.book),HabitModel(title: "Go to bed before 10pm", image: HabitModel.Images.book),
         HabitModel(title: "Drink 8 Glasses of Water", image: HabitModel.Images.book),
         HabitModel(title: "Commit Today", image: HabitModel.Images.book),
         HabitModel(title: "Stand up every Hour", image: HabitModel.Images.book)
@@ -55,9 +59,9 @@ class BaseViewController: UIViewController {
         ])
     }
     
-   
-
-
+    
+    
+    
 }
 
 
@@ -72,12 +76,15 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: CustomeTableViewCell.cellIdentifier, for: indexPath) as? CustomeTableViewCell {
             cell.initUI(object: habitsDataBase[indexPath.row])
+            cell.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
             return cell
         }
         return UITableViewCell()
     }
     
-
+    
+    
+    
 }
 
 
@@ -92,11 +99,11 @@ extension BaseViewController {
     }
     
     @objc func addNewHabit() {
-//        habitsDataBase.insert("T E S T", at: 0)
+        //        habitsDataBase.insert(, at: 0)
         let index = IndexPath(row: 0, section: 0)
         mainTableView.insertRows(at: [index], with: .fade)
     }
-
+    
 }
 
 extension Date {
@@ -104,12 +111,12 @@ extension Date {
     var stringValue: String {
         return DateFormatter.localizedString(from: self, dateStyle: .medium, timeStyle: .none)
     }
-
+    
     var isToday: Bool {
         let calendar = Calendar.current
         return calendar.isDateInToday(self)
     }
-
+    
     var isYesterday: Bool {
         let calendar = Calendar.current
         return calendar.isDateInYesterday(self)
