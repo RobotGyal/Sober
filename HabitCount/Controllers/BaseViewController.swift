@@ -21,8 +21,10 @@ class BaseViewController: UIViewController {
         mainTableViewConstraints()
         
         setNavBar()
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presistence.setNeededToReloadHabitsData()
     }
     
     // MARK: -> Global Variables
@@ -36,6 +38,8 @@ class BaseViewController: UIViewController {
         HabitModel(title: "Commit Today", image: HabitModel.Images.book),
         HabitModel(title: "Stand up every Hour", image: HabitModel.Images.book)
     ]
+    
+    private var presistence = PresistenceObject()
     
     // MARK: -> TableView
     
@@ -70,12 +74,12 @@ class BaseViewController: UIViewController {
 extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return habitsDataBase.count
+        return presistence.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: CustomeTableViewCell.cellIdentifier, for: indexPath) as? CustomeTableViewCell {
-            cell.initUI(object: habitsDataBase[indexPath.row])
+            cell.initUI(object: presistence.list[indexPath.row])
             cell.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
             return cell
         }

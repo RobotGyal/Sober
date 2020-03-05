@@ -16,6 +16,8 @@
 		770B7CB9240FA5070094F469 /* CustomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CB8240FA5070094F469 /* CustomeTableViewCell.swift */; };
 		770B7CBB240FA9780094F469 /* HabitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CBA240FA9780094F469 /* HabitsModel.swift */; };
 		770B7CBD241063070094F469 /* PresistenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CBC241063070094F469 /* PresistenceObject.swift */; };
+		770B7CC12410BEA10094F469 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CC02410BEA10094F469 /* AddHabitViewController.swift */; };
+		770B7CC42410BFCF0094F469 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CC32410BFCF0094F469 /* CustomCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		770B7CB8240FA5070094F469 /* CustomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTableViewCell.swift; sourceTree = "<group>"; };
 		770B7CBA240FA9780094F469 /* HabitsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsModel.swift; sourceTree = "<group>"; };
 		770B7CBC241063070094F469 /* PresistenceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresistenceObject.swift; sourceTree = "<group>"; };
+		770B7CC02410BEA10094F469 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
+		770B7CC32410BFCF0094F469 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				770B7CA9240FA0A00094F469 /* Assets.xcassets */,
 				770B7CAB240FA0A00094F469 /* LaunchScreen.storyboard */,
 				770B7CB7240FA4DA0094F469 /* TableViewCustomCell */,
+				770B7CC22410BFAA0094F469 /* CollectionViewCustomCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				770B7CA4240FA09F0094F469 /* BaseViewController.swift */,
+				770B7CC02410BEA10094F469 /* AddHabitViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -106,6 +112,14 @@
 				770B7CB8240FA5070094F469 /* CustomeTableViewCell.swift */,
 			);
 			path = TableViewCustomCell;
+			sourceTree = "<group>";
+		};
+		770B7CC22410BFAA0094F469 /* CollectionViewCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				770B7CC32410BFCF0094F469 /* CustomCollectionViewCell.swift */,
+			);
+			path = CollectionViewCustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,9 +196,11 @@
 				770B7CBD241063070094F469 /* PresistenceObject.swift in Sources */,
 				770B7CB9240FA5070094F469 /* CustomeTableViewCell.swift in Sources */,
 				770B7CA5240FA09F0094F469 /* BaseViewController.swift in Sources */,
+				770B7CC42410BFCF0094F469 /* CustomCollectionViewCell.swift in Sources */,
 				770B7CBB240FA9780094F469 /* HabitsModel.swift in Sources */,
 				770B7CA1240FA09F0094F469 /* AppDelegate.swift in Sources */,
 				770B7CA3240FA09F0094F469 /* SceneDelegate.swift in Sources */,
+				770B7CC12410BEA10094F469 /* AddHabitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
