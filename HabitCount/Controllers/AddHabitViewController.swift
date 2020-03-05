@@ -12,12 +12,30 @@ class AddHabitViewController: UIViewController {
     
     let habitImages = HabitModel.Images.allCases
     
+    var selectedIndexPath: IndexPath? {
+        didSet {
+            var indexPaths: [IndexPath] = []
+            if let selectedIndexPath = selectedIndexPath {
+                indexPaths.append(selectedIndexPath)
+            }
+            if let oldValue = oldValue {
+                indexPaths.append(oldValue)
+            }
+            mainCollectionView.performBatchUpdates({
+                self.mainCollectionView.reloadItems(at: indexPaths)
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(mainCollectionView)
         mainCollectionViewConstraints()
         view.addSubview(pickedPhotoButton)
         pickedPhotoButtonConstraints()
+        
+        title  = "Select Photo"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
     }
     
@@ -28,14 +46,13 @@ class AddHabitViewController: UIViewController {
         let mainCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         mainCollectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.cellIdentifier)
         mainCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        mainCollectionView.backgroundColor = .systemPink
+        mainCollectionView.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
         return mainCollectionView
     }()
     
     func mainCollectionViewConstraints() {
-        
-                mainCollectionView.delegate = self
-                mainCollectionView.dataSource = self
+        mainCollectionView.delegate = self
+        mainCollectionView.dataSource = self
         NSLayoutConstraint.activate([
             mainCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 5),
             mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -70,7 +87,7 @@ class AddHabitViewController: UIViewController {
         ])
     }
     
- 
+    
 }
 
 
@@ -94,24 +111,46 @@ extension AddHabitViewController : UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return habitImages.count
-       }
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.cellIdentifier, for: indexPath) as? CustomCollectionViewCell {
-            cell.setUI(object: habitImages[indexPath.row].image)
-            cell.backgroundColor = .white
-            return cell
-        } else {
-            return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.cellIdentifier, for: indexPath) as? CustomCollectionViewCell
+        if indexPath == selectedIndexPath {
+            cell!.setUI(object: habitImages[indexPath.row].image, selection: true)
+            cell!.backgroundColor =  #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
         }
+        else {
+            cell!.setUI(object: habitImages[indexPath.row].image, selection: false)
+        }
+        return cell!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width / 4, height: 100)
     }
     
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    }
     
-   
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if selectedIndexPath == indexPath {
+          selectedIndexPath = nil
+        } else {
+          selectedIndexPath = indexPath
+        }
+        print("Current Index: \(indexPath.row)")
+          return false
+    }
+    
+    
+    
     
     
 }

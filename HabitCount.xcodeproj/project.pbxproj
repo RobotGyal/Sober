@@ -18,6 +18,7 @@
 		770B7CBD241063070094F469 /* PresistenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CBC241063070094F469 /* PresistenceObject.swift */; };
 		770B7CC12410BEA10094F469 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CC02410BEA10094F469 /* AddHabitViewController.swift */; };
 		770B7CC42410BFCF0094F469 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CC32410BFCF0094F469 /* CustomCollectionViewCell.swift */; };
+		770B7CC62410D5CB0094F469 /* ConfirmHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CC52410D5CB0094F469 /* ConfirmHabitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		770B7CBC241063070094F469 /* PresistenceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresistenceObject.swift; sourceTree = "<group>"; };
 		770B7CC02410BEA10094F469 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		770B7CC32410BFCF0094F469 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		770B7CC52410D5CB0094F469 /* ConfirmHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmHabitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				770B7CA4240FA09F0094F469 /* BaseViewController.swift */,
 				770B7CC02410BEA10094F469 /* AddHabitViewController.swift */,
+				770B7CC52410D5CB0094F469 /* ConfirmHabitViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				770B7CBD241063070094F469 /* PresistenceObject.swift in Sources */,
 				770B7CB9240FA5070094F469 /* CustomeTableViewCell.swift in Sources */,
+				770B7CC62410D5CB0094F469 /* ConfirmHabitViewController.swift in Sources */,
 				770B7CA5240FA09F0094F469 /* BaseViewController.swift in Sources */,
 				770B7CC42410BFCF0094F469 /* CustomCollectionViewCell.swift in Sources */,
 				770B7CBB240FA9780094F469 /* HabitsModel.swift in Sources */,

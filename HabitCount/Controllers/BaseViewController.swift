@@ -104,8 +104,9 @@ extension BaseViewController {
     
     @objc func addNewHabit() {
         //        habitsDataBase.insert(, at: 0)
-        let index = IndexPath(row: 0, section: 0)
-        mainTableView.insertRows(at: [index], with: .fade)
+//        let index = IndexPath(row: 0, section: 0)
+//        mainTableView.insertRows(at: [index], with: .fade)
+          performSegue(withIdentifier: "createNewHabit", sender: self)
     }
     
 }
