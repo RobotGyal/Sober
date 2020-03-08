@@ -10,8 +10,12 @@ import UIKit
 
 class ConfirmHabitViewController: UIViewController {
     
+    // ! Because image is needed memditorily...
+    var selectedImage: HabitModel.Images!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "New Habit"
         view.addSubview(pickedImage)
         pickedImageConstraints()
         view.addSubview(habitNameLabel)
@@ -20,19 +24,30 @@ class ConfirmHabitViewController: UIViewController {
         habitNameTextFieldContstraints()
         view.addSubview(createHabitButton)
         createHabitButtonConstraints()
+        
+         updateUI()
+    }
+    
+    private func updateUI() {
+        pickedImage.image = selectedImage.image
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
     }
     
     lazy var pickedImage: UIImageView = {
         let pickedImage = UIImageView(frame: .zero)
         pickedImage.contentMode = .scaleAspectFit
         pickedImage.translatesAutoresizingMaskIntoConstraints = false
-        pickedImage.image = UIImage(named: "book")
+//        pickedImage.image = UIImage(named: "book")
         return pickedImage
     }()
     
     func pickedImageConstraints() {
         NSLayoutConstraint.activate([
-            pickedImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            pickedImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 180),
             pickedImage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
             pickedImage.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 3),
             pickedImage.heightAnchor.constraint(equalToConstant: 200)
@@ -80,10 +95,10 @@ class ConfirmHabitViewController: UIViewController {
     
     func habitNameTextFieldContstraints() {
         NSLayoutConstraint.activate([
-            habitNameTextField.topAnchor.constraint(equalTo: habitNameLabel.bottomAnchor, constant: 30),
-            habitNameTextField.leadingAnchor.constraint(equalTo: pickedImage.leadingAnchor, constant: 50),
-            habitNameTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -430),
-            habitNameTextField.trailingAnchor.constraint(equalTo: pickedImage.trailingAnchor, constant: -50),
+            habitNameTextField.topAnchor.constraint(equalTo: habitNameLabel.bottomAnchor, constant: 10),
+            habitNameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            habitNameTextField.widthAnchor.constraint(equalToConstant: view.frame.size.width / 1.5),
+            habitNameTextField.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -100,10 +115,10 @@ class ConfirmHabitViewController: UIViewController {
     
     func createHabitButtonConstraints() {
         NSLayoutConstraint.activate([
-            createHabitButton.topAnchor.constraint(equalTo: habitNameTextField.bottomAnchor, constant: 10),
-            createHabitButton.leadingAnchor.constraint(equalTo: habitNameTextField.leadingAnchor, constant: 0),
-            createHabitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -350),
-            createHabitButton.trailingAnchor.constraint(equalTo: habitNameTextField.trailingAnchor, constant: 0),
+            createHabitButton.topAnchor.constraint(equalTo: habitNameTextField.bottomAnchor, constant: 15),
+            createHabitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            createHabitButton.widthAnchor.constraint(equalToConstant: view.frame.size.width / 1.5),
+            createHabitButton.heightAnchor.constraint(equalToConstant: 60)
 //            createHabitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
         ])
     }

@@ -86,6 +86,14 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .insert {
+            print("Insert to row")
+        } else if editingStyle == .delete {
+            print("Delete IndexPath")
+        }
+    }
+    
     
     
     

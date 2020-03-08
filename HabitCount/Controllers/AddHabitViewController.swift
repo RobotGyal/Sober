@@ -75,8 +75,13 @@ class AddHabitViewController: UIViewController {
     }()
     
     @objc func pickButtonPressed() {
-        print("Image Picked")
+        guard let selectedIndex = selectedIndexPath else { return }
+        let confirmVC = ConfirmHabitViewController()
+        confirmVC.selectedImage = habitImages[selectedIndex.row]
+        navigationController?.pushViewController(confirmVC, animated: true)
+        
     }
+    
     
     func pickedPhotoButtonConstraints() {
         NSLayoutConstraint.activate([
