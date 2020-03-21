@@ -15,7 +15,6 @@ class ConfirmHabitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "New Habit"
         view.addSubview(pickedImage)
         pickedImageConstraints()
         view.addSubview(habitNameLabel)
@@ -29,6 +28,7 @@ class ConfirmHabitViewController: UIViewController {
     }
     
     private func updateUI() {
+        title = "New Habit"
         pickedImage.image = selectedImage.image
     }
     
@@ -110,8 +110,17 @@ class ConfirmHabitViewController: UIViewController {
         createHabitButton.setTitle("Create Habit", for: .normal)
         createHabitButton.setTitleColor(.black, for: .normal)
         createHabitButton.layer.cornerRadius = 10
+        createHabitButton.addTarget(self, action: #selector(createHabitButtonPressed), for: .touchUpInside)
         return createHabitButton
     }()
+    
+    
+    @objc func createHabitButtonPressed() {
+           var persistenceLayer = PresistenceObject()
+           guard let habitText = habitNameTextField.text else { return }
+        persistenceLayer.createNewHabit(habitTitle: habitText, selectedImage: selectedImage)
+            self.navigationController?.popToRootViewController(animated: true)
+       }
     
     func createHabitButtonConstraints() {
         NSLayoutConstraint.activate([
