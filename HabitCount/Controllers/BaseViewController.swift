@@ -39,7 +39,7 @@ class BaseViewController: UIViewController {
         HabitModel(title: "Commit Today", image: HabitModel.Images.book),
         HabitModel(title: "Stand up every Hour", image: HabitModel.Images.book)
     ]
-    
+   
     private var presistence = PresistenceObject()
     
     // MARK: -> TableView
