@@ -29,7 +29,7 @@ class BaseViewController: UIViewController {
     }
     
     // MARK: -> Global Variables
-    
+    // Dummy DataBase
     var habitsDataBase = [
         HabitModel(title: "Go to bed before 10pm", image: HabitModel.Images.book),
         HabitModel(title: "Drink 8 Glasses of Water", image: HabitModel.Images.book),
@@ -93,6 +93,15 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
         } else if editingStyle == .delete {
             print("Delete IndexPath")
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedHabit = presistence.list[indexPath.row]
+            let habitDetailVC = HabitDetailedViewController()
+            habitDetailVC.habit = selectedHabit
+            habitDetailVC.habitIndex = indexPath.row
+            navigationController?.pushViewController(habitDetailVC, animated: true)
     }
     
     
