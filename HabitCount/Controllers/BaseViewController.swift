@@ -16,6 +16,7 @@ class BaseViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
         view.addSubview(mainTableView)
         mainTableViewConstraints()
@@ -39,7 +40,7 @@ class BaseViewController: UIViewController {
         HabitModel(title: "Commit Today", image: HabitModel.Images.book),
         HabitModel(title: "Stand up every Hour", image: HabitModel.Images.book)
     ]
-   
+    
     private var presistence = PresistenceObject()
     
     // MARK: -> TableView
@@ -48,6 +49,7 @@ class BaseViewController: UIViewController {
         let mainTableView = UITableView(frame: .zero)
         mainTableView.translatesAutoresizingMaskIntoConstraints = false
         mainTableView.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
+        
         mainTableView.register(CustomeTableViewCell.self, forCellReuseIdentifier: CustomeTableViewCell.cellIdentifier)
         mainTableView.rowHeight = 100
         mainTableView.delegate = self
@@ -88,25 +90,37 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .insert {
-            print("Insert to row")
-        } else if editingStyle == .delete {
-            print("Delete IndexPath")
+       
+        switch editingStyle {
+        case .delete:
+            let habitToDelete = presistence.list[indexPath.row]
+            let habitIndexToDelete = indexPath.row
+            // 1. create a alert controller and present
+            let deleteAlert = UIAlertController(title: "Delete Habit", message: "Are you sure you want to delete \(habitToDelete.title)", preferredStyle: .alert)
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+                self.presistence.deleteHabit(at: habitIndexToDelete)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+//                print("Deleted")
+            }
+            deleteAlert.addAction(deleteAction)
+            self.present(deleteAlert, animated: true)
+            break
+        default:
+            print("User Did not delete or insert tableView")
         }
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedHabit = presistence.list[indexPath.row]
-            let habitDetailVC = HabitDetailedViewController()
-            habitDetailVC.habit = selectedHabit
-            habitDetailVC.habitIndex = indexPath.row
-            navigationController?.pushViewController(habitDetailVC, animated: true)
+        let habitDetailVC = HabitDetailedViewController()
+        habitDetailVC.habit = selectedHabit
+        habitDetailVC.habitIndex = indexPath.row
+        navigationController?.pushViewController(habitDetailVC, animated: true)
+        tableView.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
     }
     
-    
-    
-    
+
 }
 
 
@@ -116,15 +130,17 @@ extension BaseViewController {
         title = "Habits"
         navigationController?.navigationBar.prefersLargeTitles =  true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "A D D", style: .done, target: self, action: #selector(addNewHabit))
+//        navigationItem.leftBarButtonItem = self.editButtonItem
+//        navigationItem.leftBarButtonItem?.tintColor = .systemYellow
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
     @objc func addNewHabit() {
         //        habitsDataBase.insert(, at: 0)
-//        let index = IndexPath(row: 0, section: 0)
-//        mainTableView.insertRows(at: [index], with: .fade)
-          performSegue(withIdentifier: "createNewHabit", sender: self)
+        //        let index = IndexPath(row: 0, section: 0)
+        //        mainTableView.insertRows(at: [index], with: .fade)
+        performSegue(withIdentifier: "createNewHabit", sender: self)
     }
     
 }

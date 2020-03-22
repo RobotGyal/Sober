@@ -105,17 +105,7 @@ class CustomeTableViewCell: UITableViewCell {
         self.streakLabelName.text = object.title
         self.streakLabelCount.text = "Streak: \(object.currentStreak)"
         
-        // cell styling
-//        backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
         contentView.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
-        contentView.layer.masksToBounds =  true
-        contentView.layer.cornerRadius = 20
-     
-        contentView.layer.borderColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
-        contentView.layer.borderWidth = 3
-        contentView.layer.cornerRadius = 8
-        contentView.clipsToBounds = true
-        
     }
     
     

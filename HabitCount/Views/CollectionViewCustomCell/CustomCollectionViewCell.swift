@@ -14,7 +14,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     lazy var habitImage: UIImageView = {
         let habitImage = UIImageView(frame: .zero)
-        //        habitImage.backgroundColor = .orange
+//                habitImage.backgroundColor = .orange
         habitImage.translatesAutoresizingMaskIntoConstraints = false
         habitImage.contentMode = .scaleAspectFit
         return habitImage
@@ -51,7 +51,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
             self.habitImage.image = image.withRenderingMode(.alwaysTemplate)
             self.habitImage.tintColor = UIColor.gray }
         contentView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0.9540881849)
-        contentView.layer.cornerRadius = 10
+        contentView.layer.cornerRadius = 15
     }
     
     
