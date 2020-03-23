@@ -12,6 +12,7 @@ class OnBoardingViewController: UIViewController {
     
     var numOfScrollPages: Int = 3
     var scrollViewCurrentPage = 0
+    var logIn_and_signUp_buttons_tittle = ["LogIn", "Register"]
 
 
     override func viewDidLoad() {
@@ -35,14 +36,14 @@ class OnBoardingViewController: UIViewController {
     
     // 3. create logIn and sigup button at the bottom on scrollView ✅
     
-    // 4. Create UIPageController to determain which onboarding the user is on.
+    // 4. Create UIPageController to determain which onboarding the user is on. ✅
     
     lazy var mainScrollView: UIScrollView = {
         let mainScrollView = UIScrollView(frame: .zero)
         mainScrollView.translatesAutoresizingMaskIntoConstraints = false
         mainScrollView.isPagingEnabled = true
         mainScrollView.contentSize.width = self.view.frame.size.width * 3
-        mainScrollView.backgroundColor = .systemPink
+//        mainScrollView.backgroundColor = .systemPink
 //        mainScrollView.showsHorizontalScrollIndicator = false
         return mainScrollView
     }()
@@ -76,8 +77,9 @@ class OnBoardingViewController: UIViewController {
     
     lazy var firstImage: UIImageView = {
         let firstImage = UIImageView(frame: .zero)
-        firstImage.image = #imageLiteral(resourceName: "heart")
+        firstImage.image = #imageLiteral(resourceName: "onboard")
         firstImage.backgroundColor = .blue
+        firstImage.contentMode = .scaleToFill
         firstImage.translatesAutoresizingMaskIntoConstraints = false
         return firstImage
     }()
@@ -86,7 +88,7 @@ class OnBoardingViewController: UIViewController {
     func buttons() {
         for i in 0...1 {
             let buttons = UIButton()
-            buttons.setTitle("\(i)", for: .normal)
+            buttons.setTitle("\(logIn_and_signUp_buttons_tittle[i])", for: .normal)
             buttons.setTitleColor(.black, for: .normal)
             buttons.backgroundColor = .systemYellow
             buttonsStackView.addArrangedSubview(buttons)
