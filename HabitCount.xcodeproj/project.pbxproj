@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7709FC0A242850AB00DD4A54 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709FC09242850AB00DD4A54 /* OnBoardingViewController.swift */; };
 		770B7CA1240FA09F0094F469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CA0240FA09F0094F469 /* AppDelegate.swift */; };
 		770B7CA3240FA09F0094F469 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CA2240FA09F0094F469 /* SceneDelegate.swift */; };
 		770B7CA5240FA09F0094F469 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CA4240FA09F0094F469 /* BaseViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7709FC09242850AB00DD4A54 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		770B7C9D240FA09F0094F469 /* HabitCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		770B7CA0240FA09F0094F469 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		770B7CA2240FA09F0094F469 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		770B7CB6240FA1AD0094F469 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7709FC09242850AB00DD4A54 /* OnBoardingViewController.swift */,
 				770B7CA4240FA09F0094F469 /* BaseViewController.swift */,
 				770B7CC02410BEA10094F469 /* AddHabitViewController.swift */,
 				770B7CC52410D5CB0094F469 /* ConfirmHabitViewController.swift */,
@@ -209,6 +212,7 @@
 				77B1DDCE2426D78000E3F76C /* HabitDetailedViewController.swift in Sources */,
 				770B7CA3240FA09F0094F469 /* SceneDelegate.swift in Sources */,
 				770B7CC12410BEA10094F469 /* AddHabitViewController.swift in Sources */,
+				7709FC0A242850AB00DD4A54 /* OnBoardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

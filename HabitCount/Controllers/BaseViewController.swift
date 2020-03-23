@@ -120,6 +120,10 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.backgroundColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+      presistence.swapHabits(habitIndex: sourceIndexPath.row, destinationIndex: destinationIndexPath.row)
+    }
+    
 
 }
 

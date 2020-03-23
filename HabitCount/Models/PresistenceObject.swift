@@ -95,5 +95,12 @@ struct PresistenceObject {
         self.readHabits()
     }
     
+    mutating func swapHabits(habitIndex: Int, destinationIndex: Int) {
+      let habitToSwap = self.list[habitIndex]
+      self.list.remove(at: habitIndex)
+      self.list.insert(habitToSwap, at: destinationIndex)
+      self.saveHabits()
+    }
+    
     
 }
