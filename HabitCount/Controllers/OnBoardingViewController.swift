@@ -13,8 +13,8 @@ class OnBoardingViewController: UIViewController {
     var numOfScrollPages: Int = 3
     var scrollViewCurrentPage = 0
     var logIn_and_signUp_buttons_tittle = ["LogIn", "Register"]
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(mainScrollView)
@@ -24,7 +24,7 @@ class OnBoardingViewController: UIViewController {
         onBoardingImagesStackView.addArrangedSubview(firstImage)
         view.addSubview(buttonsStackView)
         buttonsStackViewConstraint()
-       buttons()
+        buttons()
         view.addSubview(pageControl)
         pageControlConstraint()
         mainScrollView.delegate = self
@@ -43,8 +43,8 @@ class OnBoardingViewController: UIViewController {
         mainScrollView.translatesAutoresizingMaskIntoConstraints = false
         mainScrollView.isPagingEnabled = true
         mainScrollView.contentSize.width = self.view.frame.size.width * 3
-//        mainScrollView.backgroundColor = .systemPink
-//        mainScrollView.showsHorizontalScrollIndicator = false
+        //        mainScrollView.backgroundColor = .systemPink
+        //        mainScrollView.showsHorizontalScrollIndicator = false
         return mainScrollView
     }()
     
@@ -91,39 +91,56 @@ class OnBoardingViewController: UIViewController {
             buttons.setTitle("\(logIn_and_signUp_buttons_tittle[i])", for: .normal)
             buttons.setTitleColor(.black, for: .normal)
             buttons.backgroundColor = .systemYellow
+            buttons.addTarget(self, action: #selector(loginAndRegisterButtonPress(sender:)), for: .touchUpInside)
+            buttons.tag = i
             buttonsStackView.addArrangedSubview(buttons)
+        }
+    }
+    
+    @objc func loginAndRegisterButtonPress(sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            // perform seuge to login vc using storyBoard
+            print("Seguing to login vc")
+                        performSegue(withIdentifier: "login", sender: self)
+            break
+        case 1:
+            print("Seguing to register vc")
+                    performSegue(withIdentifier: "register", sender: self)
+        default:
+            print("Neather button Press")
         }
     }
     
     
     lazy var buttonsStackView : UIStackView = {
-           let buttonsStackView = UIStackView(frame: .zero)
-           buttonsStackView.axis = .horizontal
-           buttonsStackView.distribution = .fillEqually
-           buttonsStackView.spacing = 1
-           buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
-           return buttonsStackView
-       }()
-       
-       func buttonsStackViewConstraint() {
-           NSLayoutConstraint.activate([
-               buttonsStackView.topAnchor.constraint(equalTo: onBoardingImagesStackView.bottomAnchor, constant: 5),
-               buttonsStackView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: 0),
-               buttonsStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-               buttonsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-           ])
-       }
+        let buttonsStackView = UIStackView(frame: .zero)
+        buttonsStackView.axis = .horizontal
+        buttonsStackView.distribution = .fillEqually
+        buttonsStackView.spacing = 1
+        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
+        return buttonsStackView
+    }()
+    
+    func buttonsStackViewConstraint() {
+        NSLayoutConstraint.activate([
+            buttonsStackView.topAnchor.constraint(equalTo: onBoardingImagesStackView.bottomAnchor, constant: 5),
+            buttonsStackView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: 0),
+            buttonsStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            buttonsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
     
     
     lazy var pageControl : UIPageControl = {
         let pageControl = UIPageControl(frame: .zero)
-//        pageControl.currentPage = 0
+        //        pageControl.currentPage = 0
         pageControl.numberOfPages = numOfScrollPages
         pageControl.pageIndicatorTintColor = .systemYellow
         pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.1512203515, green: 0.1612353325, blue: 0.1522695124, alpha: 1)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-//        pageControl.backgroundColor = .blue
-//        pageControl.addTarget(self, action: #selector(controllerChanged), for: .valueChanged)
+        //        pageControl.backgroundColor = .blue
+        //        pageControl.addTarget(self, action: #selector(controllerChanged), for: .valueChanged)
         return pageControl
     }()
     
@@ -144,24 +161,24 @@ class OnBoardingViewController: UIViewController {
 
 
 extension OnBoardingViewController: UIScrollViewDelegate {
-         func scrollViewDidScroll(_ scrollView: UIScrollView) {
-          if scrollView.contentOffset == CGPoint(x: 0, y: 0) {
-              /// Returns the current page number to scrollViewCurrentPage property observer
-              scrollViewCurrentPage = 0
-              pageControl.currentPage = scrollViewCurrentPage
-              
-          } else if scrollView.contentOffset == CGPoint(x: self.view.frame.size.width, y: 0) {
-              scrollViewCurrentPage = 1
-              pageControl.currentPage = scrollViewCurrentPage
-              
-          } else if scrollView.contentOffset == CGPoint(x: self.view.frame.size.width * 2, y: 0) {
-              scrollViewCurrentPage = 2
-              pageControl.currentPage = scrollViewCurrentPage
-              
-          }
-          
-      }
-
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset == CGPoint(x: 0, y: 0) {
+            /// Returns the current page number to scrollViewCurrentPage property observer
+            scrollViewCurrentPage = 0
+            pageControl.currentPage = scrollViewCurrentPage
+            
+        } else if scrollView.contentOffset == CGPoint(x: self.view.frame.size.width, y: 0) {
+            scrollViewCurrentPage = 1
+            pageControl.currentPage = scrollViewCurrentPage
+            
+        } else if scrollView.contentOffset == CGPoint(x: self.view.frame.size.width * 2, y: 0) {
+            scrollViewCurrentPage = 2
+            pageControl.currentPage = scrollViewCurrentPage
+            
+        }
+        
+    }
+    
     
     
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7709FC0A242850AB00DD4A54 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709FC09242850AB00DD4A54 /* OnBoardingViewController.swift */; };
+		7709FC0C24287BE500DD4A54 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709FC0B24287BE500DD4A54 /* LoginViewController.swift */; };
+		7709FC0E24287BF100DD4A54 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709FC0D24287BF100DD4A54 /* RegisterViewController.swift */; };
 		770B7CA1240FA09F0094F469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CA0240FA09F0094F469 /* AppDelegate.swift */; };
 		770B7CA3240FA09F0094F469 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CA2240FA09F0094F469 /* SceneDelegate.swift */; };
 		770B7CA5240FA09F0094F469 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B7CA4240FA09F0094F469 /* BaseViewController.swift */; };
@@ -25,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		7709FC09242850AB00DD4A54 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		7709FC0B24287BE500DD4A54 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7709FC0D24287BF100DD4A54 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		770B7C9D240FA09F0094F469 /* HabitCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		770B7CA0240FA09F0094F469 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		770B7CA2240FA09F0094F469 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				7709FC09242850AB00DD4A54 /* OnBoardingViewController.swift */,
+				7709FC0B24287BE500DD4A54 /* LoginViewController.swift */,
+				7709FC0D24287BF100DD4A54 /* RegisterViewController.swift */,
 				770B7CA4240FA09F0094F469 /* BaseViewController.swift */,
 				770B7CC02410BEA10094F469 /* AddHabitViewController.swift */,
 				770B7CC52410D5CB0094F469 /* ConfirmHabitViewController.swift */,
@@ -202,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7709FC0C24287BE500DD4A54 /* LoginViewController.swift in Sources */,
 				770B7CBD241063070094F469 /* PresistenceObject.swift in Sources */,
 				770B7CB9240FA5070094F469 /* CustomeTableViewCell.swift in Sources */,
 				770B7CC62410D5CB0094F469 /* ConfirmHabitViewController.swift in Sources */,
@@ -211,6 +218,7 @@
 				770B7CA1240FA09F0094F469 /* AppDelegate.swift in Sources */,
 				77B1DDCE2426D78000E3F76C /* HabitDetailedViewController.swift in Sources */,
 				770B7CA3240FA09F0094F469 /* SceneDelegate.swift in Sources */,
+				7709FC0E24287BF100DD4A54 /* RegisterViewController.swift in Sources */,
 				770B7CC12410BEA10094F469 /* AddHabitViewController.swift in Sources */,
 				7709FC0A242850AB00DD4A54 /* OnBoardingViewController.swift in Sources */,
 			);
