@@ -146,12 +146,12 @@ extension AddHabitViewController : UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         if selectedIndexPath == indexPath {
-          selectedIndexPath = nil
+            selectedIndexPath = nil
         } else {
-          selectedIndexPath = indexPath
+            selectedIndexPath = indexPath
         }
         print("Current Index: \(indexPath.row)")
-          return false
+        return false
     }
     
     

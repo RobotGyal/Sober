@@ -24,7 +24,7 @@ class ConfirmHabitViewController: UIViewController {
         view.addSubview(createHabitButton)
         createHabitButtonConstraints()
         
-         updateUI()
+        updateUI()
     }
     
     private func updateUI() {
@@ -32,16 +32,11 @@ class ConfirmHabitViewController: UIViewController {
         pickedImage.image = selectedImage.image
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-       
-    }
-    
     lazy var pickedImage: UIImageView = {
         let pickedImage = UIImageView(frame: .zero)
         pickedImage.contentMode = .scaleAspectFit
         pickedImage.translatesAutoresizingMaskIntoConstraints = false
-//        pickedImage.image = UIImage(named: "book")
+        //        pickedImage.image = UIImage(named: "book")
         return pickedImage
     }()
     
@@ -51,9 +46,9 @@ class ConfirmHabitViewController: UIViewController {
             pickedImage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
             pickedImage.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 3),
             pickedImage.heightAnchor.constraint(equalToConstant: 200)
-//            pickedImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
-//            pickedImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
-//            pickedImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70)
+            //            pickedImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
+            //            pickedImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            //            pickedImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70)
         ])
     }
     
@@ -63,7 +58,7 @@ class ConfirmHabitViewController: UIViewController {
         habitNameLabel.font = UIFont(name: "Arial", size: 30)
         habitNameLabel.textColor = .white
         habitNameLabel.textAlignment = .center
-//        habitNameLabel.backgroundColor = .systemPink
+        //        habitNameLabel.backgroundColor = .systemPink
         habitNameLabel.translatesAutoresizingMaskIntoConstraints = false
         return habitNameLabel
     }()
@@ -83,7 +78,7 @@ class ConfirmHabitViewController: UIViewController {
         habitNameTextField.placeholder = "    Hahit Name"
         habitNameTextField.textAlignment = .left
         habitNameTextField.backgroundColor = .white
-//        habitNameTextField.clipsToBounds = true
+        //        habitNameTextField.clipsToBounds = true
         
         // styling
         habitNameTextField.layer.masksToBounds = true
@@ -116,11 +111,11 @@ class ConfirmHabitViewController: UIViewController {
     
     
     @objc func createHabitButtonPressed() {
-           var persistenceLayer = PresistenceObject()
-           guard let habitText = habitNameTextField.text else { return }
+        var persistenceLayer = PresistenceObject()
+        guard let habitText = habitNameTextField.text else { return }
         persistenceLayer.createNewHabit(habitTitle: habitText, selectedImage: selectedImage)
-            self.navigationController?.popToRootViewController(animated: true)
-       }
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     
     func createHabitButtonConstraints() {
         NSLayoutConstraint.activate([
@@ -128,7 +123,7 @@ class ConfirmHabitViewController: UIViewController {
             createHabitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             createHabitButton.widthAnchor.constraint(equalToConstant: view.frame.size.width / 1.5),
             createHabitButton.heightAnchor.constraint(equalToConstant: 60)
-//            createHabitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
+            //            createHabitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
         ])
     }
     
